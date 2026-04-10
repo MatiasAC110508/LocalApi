@@ -35,3 +35,26 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # LocalApi
+
+## Vector Search (Gemini embeddings)
+
+This project includes a simple vector search endpoint and a client-side
+search panel that demonstrates semantic search across the local `users`
+and `clients` resources.
+
+Configuration:
+
+- To use Google Gemini embeddings, set the environment variable `GEMINI_API_KEY`.
+	If the SDK `@google/generative-ai` is installed and the key is present
+	the server will call the real embedding model. If not configured the
+	application falls back to a deterministic local embedding generator so
+	vector search remains functional in development.
+
+Example environment file: see `.env.example`.
+
+API:
+
+- `POST /api/search` -> body `{ query: string, resource: 'clients'|'users', topK?: number }`
+
+The response is JSON `{ results: [{ item, score }] }` sorted by score descending.
+

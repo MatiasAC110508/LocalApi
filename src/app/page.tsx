@@ -2,6 +2,7 @@ import { ClientsPanel } from "@/modules/clients/components/clients-panel";
 import { UsersPanel } from "@/modules/users/components/users-panel";
 import { SectionCard } from "@/modules/shared/components/section-card";
 import { StatCard } from "@/modules/shared/components/stat-card";
+import { SearchPanel } from "@/modules/shared/components/search-panel";
 
 export default function Home() {
   return (
@@ -69,6 +70,7 @@ export default function Home() {
           </div>
         </SectionCard>
       </section>
+      <SearchPanel />
 
       <section className="grid gap-6 xl:grid-cols-2">
         <UsersPanel />
